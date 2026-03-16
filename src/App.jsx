@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import PromptManager from './components/PromptManager';
 import ThinkingHUD from './components/ThinkingHUD';
 import VideoPlayer from './components/VideoPlayer';
@@ -19,21 +19,14 @@ function App() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [generatedVideo, setGeneratedVideo] = useState(null);
-  const [promptHistory, setPromptHistory] = useState([]);
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const [pexelsApiKey, setPexelsApiKey] = useState('');
-
-  // Load history from localStorage on mount
-  useEffect(() => {
+  const [promptHistory, setPromptHistory] = useState(() => {
     const saved = localStorage.getItem('ai_video_history');
-    if (saved) {
-      setPromptHistory(JSON.parse(saved));
-    }
-    const savedKey = localStorage.getItem('pexels_api_key');
-    if (savedKey) {
-      setPexelsApiKey(savedKey);
-    }
-  }, []);
+    return saved ? JSON.parse(saved) : [];
+  });
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [pexelsApiKey, setPexelsApiKey] = useState(() => {
+    return localStorage.getItem('pexels_api_key') || '';
+  });
 
   const handleSaveApiKey = (key) => {
     setPexelsApiKey(key);

@@ -1,0 +1,184 @@
+:root {
+  --bg-color: #05050a;
+  --surface-color: rgba(20, 20, 30, 0.6);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --primary-color: #00f0ff;
+  --secondary-color: #7000ff;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0b0;
+  
+  --glass-bg: rgba(15, 15, 25, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(112, 0, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(0, 240, 255, 0.1) 0%, transparent 50%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 16px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* Neon Glow Effect */
+.glow-text {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+/* Micro-animations */
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s ease-out forwards;
+}
+
+/* App Header specific styles */
+.app-header {
+  padding: 2rem;
+  margin: 1.5rem;
+  text-align: center;
+}
+
+.header-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.settings-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.settings-btn:hover {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  background: rgba(0, 240, 255, 0.1);
+}
+
+.memory-badge {
+  display: inline-block;
+  background: rgba(112, 0, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  border: 1px solid rgba(112, 0, 255, 0.5);
+}
+
+/* Base structural styles that used to be in App.css */
+.app-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.action-btn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid var(--border-color);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 600;
+}
+
+.action-btn:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+.welcome-message {
+  text-align: center;
+  margin-top: 4rem;
+  color: var(--text-secondary);
+}
+
+.welcome-message h2 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.app-footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}

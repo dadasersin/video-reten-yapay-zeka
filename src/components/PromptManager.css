@@ -1,0 +1,55 @@
+.prompt-manager-container {
+  padding: 1.5rem;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.prompt-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.prompt-input {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary);
+  padding: 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: none;
+  transition: all 0.3s ease;
+}
+
+.prompt-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+.generate-btn {
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  align-self: flex-end;
+}
+
+.generate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 240, 255, 0.4);
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+}
